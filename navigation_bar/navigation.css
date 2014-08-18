@@ -1,0 +1,29 @@
+/*CSS3新特性@font-face，能自定义添加字体*/
+@font-face{
+	font-family: ubuntu_font;
+	src:url(Ubuntu-Light.ttf);
+}
+.nav{
+	line-height: 50px;/*行间距*/
+	height: 50px;
+	width: auto;
+	background-color: #8968CD;
+	text-align: center;
+	font-size: 20px;
+	font-weight: normal;
+	font-family: ubuntu_font;
+}
+.nav ul li{
+	display: inline-block;
+	margin: 0 30px;	/*上下边距是0px，左右边距是30px*/
+}
+.nav li ul{
+	display: none;
+}
+.nav a{
+	color: #FFFFFF;
+	text-decoration: none;	/*下划线*/
+}
+.footer{
+	font-family: ubuntu_font;
+}
