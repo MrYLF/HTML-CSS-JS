@@ -13,17 +13,46 @@
 	font-weight: normal;
 	font-family: ubuntu_font;
 }
+.nav ul{
+	list-style-type:none;	/*列表样式*/
+	margin:0;
+    padding:0;
+}
 .nav ul li{
 	display: inline-block;
+	position:relative;
+	/*float:left;此元素为浮动是向左还是向右*/
 	margin: 0 30px;	/*上下边距是0px，左右边距是30px*/
 }
 .nav li ul{
-	display: none;
+	background-color: #8968CD;
+	position:absolute;
+    left:-30px;/*定位元素左外边距边界与其包含块左边界之间的偏移，在此即二级导航整块的位置*/
+    top:50px; /*刚好在导航栏50px宽度下 */
+    width:150px;
 }
 .nav a{
 	color: #FFFFFF;
 	text-decoration: none;	/*下划线*/
+
 }
+.nav a:hover{
+	color: #8B6914;
+}
+/*.nav li li a{
+	width: 200px;
+	margin:0 10px;
+    padding:0px;
+	border-bottom:solid 1px rgb(255,255,255);
+}
+.nav li li:last-child a {
+	border-bottom:none;
+}*/
+/*子菜单*/
+ul.sub-menu{
+	display: none;
+}
+
 .footer{
 	font-family: ubuntu_font;
 }

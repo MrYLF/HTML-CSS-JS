@@ -4,15 +4,17 @@
 	<title>简易导航</title>
 	<meta charset="utf-8"/>
 	<script type="text/javascript" src="jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="navigation.js"></script>
 	<link rel="stylesheet" type="text/css" href="navigation.css">
 </head>
 <body>
 	<div class="nav">
-		<ul>
+		<ul class="navContent clearfix">
 			<li><a href="#">menu1</a></li>
 			<li><a href="#">menu2</a></li>
-			<li><a href="#">menu3</a>
-				<ul>
+			<li class="dropdown">
+				<a href="#">menu3</a>
+				<ul class="sub-menu">
 					<li><a href="#">menu3.1</a></li>
 					<li><a href="#">menu3.2</a></li>
 					<li><a href="#">menu3.3</a></li>
