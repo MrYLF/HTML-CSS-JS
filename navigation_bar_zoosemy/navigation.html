@@ -4,24 +4,51 @@
 	<meta charset="utf-8"/>
 	<script type="text/javascript" src="jquery-1.11.1.js"></script>
 	<style type="text/css">
-		#test{
+		@font-face{
+			font-family: ubuntu_font;
+			src:url(Ubuntu-Regular.ttf);
+		}
+		body{
+			font-family: ubuntu_font;
+			text-align: center;
+		}
+		.nav{
 			margin: 3px;
-			width: auto;
+			width: 800px;
 			height: 40px;
-			line-height: 40px;
+			line-height: 40px;		/*行间距（与高一致，垂直居中）*/
 			background-color: #392043;
 			color: #948598;
 			border-radius: 10px;
 			text-align: center;
+/*			margin-left: auto;		外边距
+			margin-right: auto;*/
+			margin: 0 auto;
+			font-size: 20px;
+			position:relative;		/*位置相对，适应不同分辨率*/
 		}
-		.menu{
+		.nav ul li{
+			display: inline-block;	/*水平显示*/
+			margin: 0px 20px;	/*各个菜单间距*/
+			float: none;	/*若分辨率过小一行不能显示时，则不采取浮动，在一行中显示所有*/
+		}
+		.nav li li{
+			display: none;	/*二级菜单默认不显示*/
+		}
+		.nav li a{			/*超链接样式*/
+			color: #FFA500;
+			text-decoration: none;
+			float: none;
+		}
+/*		.menu{
 			width: 100px;
 			background-color: #392043;
 			color: #FFFFFF;
 			border-radius: 10px 0px 0px 10px;
 			text-align: center;
 			font-size: 20px;
-		}
+
+		}*/
 	</style>
 	<script type="text/javascript">
 		$(document).ready(function(){
@@ -37,11 +64,26 @@
 	</script>
 </head>
 <body>
-	<div id="test">
-		<div id="nav1" class="menu">
-			abc
-		</div>
+	<div class="nav">
+		<ul>
+			<li><a href="#">menu1</a></li>
+			<li><a href="#">menu2</a>
+				<ul>
+					<li><a href="#">menu2.1</a></li>
+					<li><a href="#">menu2.2</a></li>
+					<li><a href="#">menu2.3</a></li>
+				</ul>
+			</li>
+			<li><a href="#">menu3</a></li>
+			<li><a href="#">menu4</a>
+				<ul>
+					<li><a href="#">menu4.1</a></li>
+					<li><a href="#">menu4.2</a></li>
+					<li><a href="#">menu4.3</a></li>
+				</ul>
+			</li>
+			<li><a href="#">menu5</a></li>
+		</ul>
 	</div>
-
 </body>
 </html>
