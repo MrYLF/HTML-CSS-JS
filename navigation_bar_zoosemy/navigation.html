@@ -13,12 +13,10 @@
 			text-align: center;
 		}
 		.nav{
-			margin: 3px;
 			width: 800px;
 			height: 40px;
 			line-height: 40px;		/*行间距（与高一致，垂直居中）*/
 			background-color: #392043;
-			color: #948598;
 			border-radius: 10px;
 			text-align: center;
 /*			margin-left: auto;		外边距
@@ -27,37 +25,48 @@
 			font-size: 20px;
 			position:relative;		/*位置相对，适应不同分辨率*/
 		}
+		.nav ul{
+			list-style-type:none;	/*列表样式*/
+			margin:0;
+		    padding:0;
+		}
 		.nav ul li{
 			display: inline-block;	/*水平显示*/
+			position:relative;
 			margin: 0px 20px;	/*各个菜单间距*/
-			float: none;	/*若分辨率过小一行不能显示时，则不采取浮动，在一行中显示所有*/
+			padding:0;
+			/*float: none;*/	/*若分辨率过小一行不能显示时，则不采取浮动，在一行中显示所有*/
+			/*border:solid 1px #FFA500;*/
 		}
-		.nav li li{
-			display: none;	/*二级菜单默认不显示*/
+		.nav li ul{
+			background-color: #392043;
+			position:absolute;
+			border-radius: 10px;
+		    left:-30px;/*定位元素左外边距边界与其包含块左边界之间的偏移，在此即二级导航整块的位置*/
+		    top:40px; /*刚好在导航栏50px宽度下 */
+		    width:120px;
 		}
 		.nav li a{			/*超链接样式*/
+			/*display: inline-block;*/
+			display: block;
 			color: #FFA500;
 			text-decoration: none;
-			float: none;
+			/*float: none;*/
 		}
-/*		.menu{
-			width: 100px;
-			background-color: #392043;
-			color: #FFFFFF;
-			border-radius: 10px 0px 0px 10px;
-			text-align: center;
-			font-size: 20px;
-
-		}*/
+		ul.sub-menu{
+			display: none;
+		}
 	</style>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$('.menu').hover(
+			$('.nav li').hover(
 				function(){
-					$(".menu").css("background-color", "#000000");
+					$(this).css("background-color", "#254815");
+					$(this).children('.sub-menu').slideDown(300);
 				},
 				function(){
-					$(".menu").css("background-color", "#392043")
+					$(this).css("background-color", "#392043");
+					$(this).children('.sub-menu').slideUp(300);
 				}
 			);
 		});
@@ -68,7 +77,7 @@
 		<ul>
 			<li><a href="#">menu1</a></li>
 			<li><a href="#">menu2</a>
-				<ul>
+				<ul class="sub-menu">
 					<li><a href="#">menu2.1</a></li>
 					<li><a href="#">menu2.2</a></li>
 					<li><a href="#">menu2.3</a></li>
@@ -76,7 +85,7 @@
 			</li>
 			<li><a href="#">menu3</a></li>
 			<li><a href="#">menu4</a>
-				<ul>
+				<ul class="sub-menu">
 					<li><a href="#">menu4.1</a></li>
 					<li><a href="#">menu4.2</a></li>
 					<li><a href="#">menu4.3</a></li>
