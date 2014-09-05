@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>AuSemi</title>
+	<link rel="stylesheet" href="../CSS/base.css" />
+	<link rel="stylesheet" href="../CSS/new.css" />
+	<link rel="stylesheet" href="../CSS/main.css" />
+	<script src="../JS/jquery-1.9.1.min.js"></script>
+	<script>
+		//导航动画
+		$(document).ready(function() {
+			$('.dropdown').hover(function() {
+				$(this).children('.sub-menu').slideDown(300);
+			}, function() {
+				$(this).children('.sub-menu').slideUp(300);
+			});
+			//侧边栏手风琴
+			// $('.left_menu_body').click(function(){
+			// 	// $(this).css("display", "block");
+			// 	// if (this == event.target){
+			// 	// 	$(this).children().toggle();
+			// 	// }
+			// 	alert("hello");
+			// });
+			$("#firstpart p.left_menu_head").click(function(){
+				var status = $(this).next("div.left_menu_body").css("display");
+				if(status == "none"){
+					$(this).css({backgroundImage:"url(../Img/bg_nav.png) "}).next("div.left_menu_body").slideToggle(300).siblings("div.left_menu_body").slideUp("slow");
+					//$(this).siblings().css({backgroundImage:"url(images/temp_a/left.png)"});
+				}else{
+					$(this).css({backgroundImage:"url(../Img/bg_nav.png) "}).next("div.left_menu_body").slideToggle(300).siblings("div.left_menu_body").slideUp("slow");
+					//$(this).siblings().css({backgroundImage:"url(images/temp_a/left.png)"});
+				}
+			});
+		});
+		function isRight(obj){
+			if(obj.product_search.value == ""){
+				alert("Please input the Product Name!");
+				obj.product_search.focus();
+				return false;
+			}
+			return true;
+		}
+	</script>
+</head>
+<body>
+	<!--logo-->
+	<div id="header" align="center"></div>
+	<!--导航-->
+	<div id="menu" align="center">
+		<ul class="navContent clearfix" align="center">
+			<li><a href="../home.jsp" id="home">Home</a></li>
+			<li class="dropdown"><a href="product.jsp">Product <img
+					src="../Img/arrow-down.png"></a>
+				<ul class="sub-menu">
+					<li><a href="mosfet.jsp">Mosfet</a></li>
+					<li><a href="SR.jsp">SR Control Module</a></li>
+				</ul></li>
+			<li class="dropdown"><a href="about.jsp">About us <img
+					src="../Img/arrow-down.png"></a>
+				<ul class="sub-menu">
+					<li><a href="about.jsp">Company Overview</a></li>
+					<li><a href="quality.jsp">Quality</a></li>
+					<li><a href="culture.jsp">AuSemi Culture</a></li>
+					<li><a href="carrers.jsp">Careers</a></li>
+					<li><a href="news.jsp">News Centre</a></li>
+				</ul></li>
+			<li class="dropdown"><a href="contact.jsp">Contact us <img
+					src="../Img/arrow-down.png"></a>
+				<ul class="sub-menu">
+					<li><a href="contact.jsp">Contact us</a></li>
+					<li><a href="agent.jsp" id="agent">Agent</a></li>
+				</ul></li>
+			<li><a href="suggestion.jsp">Suggestion</a></li>
+			<li><a href="search.jsp">Search</a></li>
+		</ul>
+	</div>
+	<!--content-->
+	<div id="newContent">
+		<div id="left_logo">
+			<img src="../Img/product_mosfet.jpg" width="170" height="35">
+		</div>
+		<div id="right">
+			
+		</div>
+		<!--main_content-->
+		<div id="content2">
+			<!--LEFT-->
+			<div id="leftbox">
+				<div id="firstpart" class="menu_list">
+					<p class="left_menu_head" style="background-image:url(../Img/bg_nav.png); color:#FFFF00; font-weight:bold; font-size:13px">HV Super_Juction Mosfet</p>
+					<div class="left_menu_body" style="display:block;">
+						<span>HV Super_Juction Mosfet(600V)</span>
+						<a href="hvsj650">HV Super_Juction Mosfet(650V)</a><br/>
+						<a href="hvsj700">HV Super_Juction Mosfet(700V)</a>
+					</div>
+					<p class="left_menu_head" style="background-image:url(../Img/bg_nav.png);font-size:12.5px">L_M Voltage Trench Mosfet</p>
+					<div class="left_menu_body" style="display:none;">
+						<a href="lvn">L_M V Trench Mosfet(N)</a><br/>
+						<a href="lvp">L_M V Trench Mosfet(P)</a>
+					</div>
+					<p class="left_menu_head" style="background-image:url(../Img/bg_nav.png);">VD Mosfet</p>
+					<div class="left_menu_body" style="display:none;">
+						<a href="vd">VD Mosfet</a>
+					</div>
+				</div>
+				<div id="global_search">
+					<h3 class="left_search_head">Part Number</h3>
+					<div class="left_search_body" style="display:block;">
+						<form name="part_form" id="part_form" method="get" action="../JSP/product_search">
+							<label>
+								<input type="text" name="part_number" id="part_number" value="Global Search" onfocus="if (this.value == 'Global Search') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Global Search';}" maxlength="150">
+							</label>
+							<input name="Search" type="button" value="Search" class="bt" onclick="javascript: from_submit('part_form');">
+						</form>
+					</div>
+				</div>
+			</div>
+			<!--RIGHT-->
+			<div id="rightbox">
+				<img src="../Img/bg_title.jpg">
+				<!--top_search-->
+				<div class="search_div">
+					<form method="post" name="clear" action="#">
+						<input type="hidden" name="doAction" value="Clear">
+					</form>
+					<form method="post" name="search" id="search" action="#">
+						<input type="hidden" name="doAction" value="Qry">
+						<div id="fitrate">
+							<div class="search_list">
+								<b>KeyWord－</b> 
+								<label>
+									<input name="KeyWord" type="text" id="KeyWord" size="22" value="">
+								</label>
+								<input type="image" src="../Img/bt_search.png" class="bt2" alt="Search" title="Search">
+							</div>
+							<!--Package-->
+							<div class="change">
+								<b>Package</b>
+								<div class="select">
+									<select name="s_package[Package]" id="s_package[Package]" class="s_search" onchange="this.form.submit();">
+										<option value="ALL">ALL</option>
+									</select>
+								</div>
+							</div>
+							<!--VDS-->
+							<div class="change">
+								<b>VDS(max)</b>
+								<div class="select">
+									<select name="s_package[34]" id="s_package[34]" class="s_search" onchange="this.form.submit();">
+										<option value="ALL">ALL</option>
+									</select>
+								</div>
+							</div>
+							<!--ID-->
+							<div class="change">
+								<b>ID(max)</b>
+								<div class="select">
+									<select class="s_search" onchange="this.form.submit();">
+										<option value="ALL">ALL</option>
+									</select>
+								</div>
+							</div>
+							<!--PD-->
+							<div class="change">
+								<b>PD(max)</b>
+								<div class="select">
+									<select class="s_search" onchange="this.form.submit();">
+										<option value="ALL">ALL</option>
+									</select>
+								</div>
+							</div>
+							<!--VGS-->
+							<div class="change">
+								<b>VGS(max)</b>
+								<div class="select">
+									<select class="s_search" onchange="this.form.submit();">
+										<option value="ALL">ALL</option>
+									</select>
+								</div>
+							</div>
+							<!--RDS_typ-->
+							<div class="change">
+								<b>RDS(typ_@10V)</b>
+								<div class="select">
+									<select class="s_search" onchange="this.form.submit();">
+										<option value="ALL">ALL</option>
+									</select>
+								</div>
+							</div>
+							<!--RDS_max-->
+							<div class="change">
+								<b>RDS(max_@10V)</b>
+								<div class="select">
+									<select class="s_search" onchange="this.form.submit();">
+										<option value="ALL">ALL</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<!--center_table-->
+				<table border="0" cellpadding="0" cellspacing="0" class="product_table">
+					<tbody>
+						<tr>
+							<th rowspan="2">
+								Product Name
+							</th>
+							<th rowspan="2">
+								Type
+							</th>
+							<th rowspan="2">VDS(max)</th>
+							<th rowspan="2">ID(max)</th>
+							<th rowspan="2">PD(max)</th>
+							<th rowspan="2">VGS(max)</th>
+							<th >RDS(on)(typ)</th>
+							<th >RDS(on)(max)</th>
+							<th rowspan="2">Package</th>
+						</tr>
+						<tr>
+							<th>(@10V)</th>
+							<th>(@10V)</th>
+						</tr>
+							<tr>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+						</tr>
+						</tr>
+							<tr>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+						</tr>
+						</tr>
+							<tr>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+						</tr>
+						</tr>
+							<tr>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+<div align="center">
+	</br> </br> </br> </br> </br> <img src="../Img/foot.jpg">
+</div>
+</html>
